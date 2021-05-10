@@ -58,7 +58,6 @@ public class ejer7 {
 			mes = pedirMes();
 			mostrar(mes);			
 		}
-		
 	}
 
 	private static void mostrarDias(int mes) {
