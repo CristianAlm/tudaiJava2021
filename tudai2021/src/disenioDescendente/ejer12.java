@@ -1,5 +1,8 @@
 package disenioDescendente;
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+
 /*
  * Siguiendo la Clase 4 Ejercicio 4, hacer un programa completo (usando
 	métodos donde se requiera) en el cual se solicite de teclado el ingreso de
@@ -55,7 +58,176 @@ public class ejer12 {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
+		
+		int dia, mes, anio;
+		dia = pedirDia();
+		mes = pedirMes();
+		anio = pedirAnio();
+		
+		int numeroAureo = calcularAureo(anio);
+		int epacta = calcularEpacta(numeroAureo);
+		int edad =  edadLunar(dia, mes, epacta);
+		System.out.println(edad);
+		
+	}
 
+	private static int edadLunar(int dia, int mes, int epacta) {
+		// TODO Auto-generated method stub
+		int cantMes = calcularCantMes(mes);
+		epacta += cantMes;
+		int resultadoEpacta = epacta + dia;
+		
+		if (resultadoEpacta > 29) {
+			resultadoEpacta %= 30;
+		}
+		return resultadoEpacta;
+		
+		
+	}
+
+	private static int calcularCantMes(int mes) {
+		// TODO Auto-generated method stub
+		int variableLocal = 0;
+		switch (mes) {
+		case 3:
+			variableLocal = 1;
+			break;
+		case 4:
+			variableLocal = 2;
+			break;
+		case 5:
+			variableLocal = 3;
+			break;
+		case 6:
+			variableLocal = 4;
+			break;
+		case 7:
+			variableLocal = 5;
+			break;
+		case 8:
+			variableLocal = 6;
+			break;
+		case 9:
+			variableLocal = 7;
+			break;
+		case 10:
+			variableLocal = 8;
+			break;
+		case 11:
+			variableLocal = 9;
+			break;
+		case 12:
+			variableLocal = 10;
+			break;
+		case 1:
+			variableLocal = 11;
+			break;
+		case 2:
+			variableLocal = 12;
+			break;
+		default:
+			break;
+		}
+		
+		return variableLocal;
+	}
+
+	private static int calcularEpacta(int numeroAureo) {
+		// TODO Auto-generated method stub
+		int calculoEpacta;
+		
+		calculoEpacta = ((numeroAureo - 1)*11);
+		
+		int segundoEpacta = (calculoEpacta%30);
+		
+		return segundoEpacta;
+
+	}
+
+	private static int calcularAureo(int anio) {
+		// TODO Auto-generated method stub
+		int resultadoDivision;
+		
+		anio +=1;
+		
+		resultadoDivision = (anio%19);
+		
+		return resultadoDivision;
+	}
+
+	private static int pedirAnio() {
+		// TODO Auto-generated method stub
+		int variableLocal=0;
+		boolean variableValida = false;
+		
+		BufferedReader entrada = new BufferedReader(new InputStreamReader(System.in));
+		
+		do {
+			
+			try {
+				System.out.println("Ingrese el anio: ");
+				variableLocal=Integer.valueOf(entrada.readLine());
+				if (variableLocal > 0) {
+					variableValida = true;
+				}
+				
+			} catch (Exception exc) {
+				// TODO: handle exception
+				System.out.println(exc);
+			}
+		} while (!variableValida);
+		
+		return variableLocal;
+	}
+
+	private static int pedirMes() {
+		// TODO Auto-generated method stub
+		int variableLocal=0;
+		boolean variableValida = false;
+		
+		BufferedReader entrada = new BufferedReader(new InputStreamReader(System.in));
+		
+		do {
+			
+			try {
+				System.out.println("Ingrese el mes: ");
+				variableLocal=Integer.valueOf(entrada.readLine());
+				if (variableLocal > 0 && variableLocal <= 12) {
+					variableValida = true;
+				}
+				
+			} catch (Exception exc) {
+				// TODO: handle exception
+				System.out.println(exc);
+			}
+		} while (!variableValida);
+		
+		return variableLocal;
+	}
+
+	private static int pedirDia() {
+		// TODO Auto-generated method stub
+		int variableLocal=0;
+		boolean variableValida = false;
+		
+		BufferedReader entrada = new BufferedReader(new InputStreamReader(System.in));
+		
+		do {
+			
+			try {
+				System.out.println("Ingrese el dia: ");
+				variableLocal=Integer.valueOf(entrada.readLine());
+				if (variableLocal > 0 && variableLocal < 32) {
+					variableValida = true;
+				}
+				
+			} catch (Exception exc) {
+				// TODO: handle exception
+				System.out.println(exc);
+			}
+		} while (!variableValida);
+		
+		return variableLocal;
 	}
 
 }
