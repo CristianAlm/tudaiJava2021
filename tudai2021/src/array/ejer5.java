@@ -5,12 +5,13 @@ import java.io.InputStreamReader;
 
 /*
  * Hacer un programa que dado un arreglo de enteros de tamaño 10 que se encuentra
-	precargado, solicite al usuario un numero entero y lo agregue al principio del arreglo (posición
-	0). Para ello tendrá que realizar un corrimiento a derecha (se pierde el último valor del arreglo) y
-	colocar el numero en el arreglo en la posición indicada.
+	precargado, solicite al usuario un numero entero y elimine la primer ocurrencia de numero (un
+	número igual) en el arreglo si existe. Para ello tendrá que buscar la posición y si está, realizar un
+	corrimiento a izquierda (queda una copia de la última posición del arreglo en la anteúltima
+	posición).
  * */
 
-public class ejer4 {
+public class ejer5 {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -23,27 +24,29 @@ public class ejer4 {
 		System.out.println("");
 		solucion(usuario,arr);
 		imprimirArray(arr);
-		
 	}
 
 	private static void solucion(int usuario, int[] arr) {
 		// TODO Auto-generated method stub
-		corrimientoDerecha(arr);
-		insertarValor(arr, usuario);
-		
+		for (int indice = 0; indice < arr.length; indice++) {
+			if (arr[indice]==usuario) {
+				corrimientoIzquierda(arr, indice);
+			}
+		}
 	}
 
-	private static void insertarValor(int[] arr, int usuario) {
+	private static void corrimientoIzquierda(int[] arr, int indice) {
 		// TODO Auto-generated method stub
-		arr[0]= usuario;
+		while (indice < arr.length-1) {
+			arr[indice]=arr[indice+1];
+			indice++;
+		}
 	}
 
-	private static void corrimientoDerecha(int[] arr) {
+	private static void imprimirArray(int[] arr) {
 		// TODO Auto-generated method stub
-		int indice = arr.length-1;
-		while (indice > 0) {
-			arr[indice] = arr[indice-1];
-			indice--;
+		for (int i = 0; i < arr.length; i++) {
+			System.out.print(arr[i] + "| ");
 		}
 	}
 
@@ -61,13 +64,6 @@ public class ejer4 {
 			System.out.println(exc);
 		}			
 		return variableLocal;
-	}
-
-	private static void imprimirArray(int[] arr) {
-		// TODO Auto-generated method stub
-		for (int i = 0; i < arr.length; i++) {
-			System.out.print(arr[i] + "| ");
-		}
 	}
 
 }
