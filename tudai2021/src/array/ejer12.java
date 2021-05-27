@@ -11,7 +11,7 @@ comenzar a buscarla a partir de la ultima posición del arreglo)
 
 public class ejer12 {
 	
-	public static final int MAX = 20;
+	public static final int MAX = 40;
 	public static final int MAXVALOR = 9;
 	public static final int MINVALOR = 1;
 	public static final double probabilidad_numero = 0.4;
@@ -20,16 +20,17 @@ public class ejer12 {
 		// TODO Auto-generated method stub
 		int [] array;
 		array = new int[MAX];
-		int posIni = MAX-1, posFin = 0;
+
 		cargar_arreglo_aleatorio_secuencias_int(array);
 		imprimir_arreglo_secuencias_int(array);
 		
-		buscarSecuencia(array, posIni,posFin);
+		buscarSecuencia(array);
 
 	}
 	
-	private static void buscarSecuencia(int[] array, int posIni, int posFin) {
+	private static void buscarSecuencia(int[] array) {
 		// TODO Auto-generated method stub
+		int posIni = MAX-1, posFin = 0;
 		int cantidad =0;
 	
 		while (posIni<MAX && cantidad<2) {
