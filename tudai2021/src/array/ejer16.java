@@ -8,7 +8,7 @@ import java.util.Random;
  * */
 
 public class ejer16 {
-	public static final int MAX = 40;
+	public static final int MAX = 20;
 	public static final int MAXVALOR = 9;
 	public static final int MINVALOR = 1;
 	public static final double probabilidad_numero = 0.4;
@@ -21,6 +21,7 @@ public class ejer16 {
 		imprimir_arreglo_secuencias_int(arr);
 		
 		resolver(arr);
+		imprimir_arreglo_secuencias_int(arr);
 
 	}
 	private static void resolver(int[] arr) {
@@ -34,8 +35,10 @@ public class ejer16 {
 				if (posFin!=-1) {
 					System.out.println("La pos Inicial es " + posIni + " y la pos Final es " + posFin);
 					
-					if(esValido(arr,posIni,posFin)){
+					boolean descendente = esValido(arr,posIni,posFin);
+					if(descendente){
 						System.out.println("Descendente");
+						eliminarSecuencia(arr, posIni,posFin);
 					}
 					posIni=posFin+1;
 				} else {
@@ -47,11 +50,25 @@ public class ejer16 {
 		}
 		
 	}
+	private static void eliminarSecuencia(int[] arr, int posIni, int posFin) {
+		// TODO Auto-generated method stub
+		for (int i = posIni; i <= posFin; i++) {
+			arr[i]=0;
+		}
+	}
 	private static boolean esValido(int[] arr, int posIni, int posFin) {
 		// TODO Auto-generated method stub
 		
-		
-		return ((arr[posIni+1] <= arr[posIni])&&(arr[posIni+1]!=0)) ;
+		int i=posIni;
+		int f=posFin;
+		while ((i<f)&&(arr[i]>=arr[i+1])) {
+			i++;
+		}
+		if(i==f){//Quiere decir que recorri toda la secuencia
+			return true;
+		}else{
+			return false;			
+		}
 	}
 	private static void imprimir_arreglo_secuencias_int(int[] arr) {
 		// TODO Auto-generated method stub
