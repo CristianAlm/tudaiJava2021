@@ -26,7 +26,7 @@ public class ejer20 {
 		inicializar_arreglo(orden);
 		imprimir_arreglo_secuencias_int(original);
 		imprimir_arreglo_secuencias_int(orden);
-		recorrer_secuencias(original,orden, posIni,posFin);
+		recorrer_secuencias(original,orden, posIni,posFin, orden3);
 		
 		//ordenar_arreglo_seleccion(orden3,orden,original,posIni,posFin);
 		imprimir_arreglo_secuencias_int(orden3);
@@ -52,7 +52,7 @@ public class ejer20 {
 	 */
 	
 	
-	public static void recorrer_secuencias(int[] original, int [] orden, int posIni, int posFin) {
+	public static void recorrer_secuencias(int[] original, int [] orden, int posIni, int posFin, int[] orden3) {
 		int indice=0;
 		while (posIni < MAX) {
 			posIni=obtenerInicio(original,posIni);
@@ -60,10 +60,12 @@ public class ejer20 {
 				posFin=obtenerFin(original,posIni);
 				if (posFin != -1) {
 					System.out.println("Pos Ini es " + posIni + " y la fin es " + posFin);
+					int largo = posFin-posIni +1;
+					insertarValor(orden3, largo, posIni, posFin);
 					 
-						System.out.println("Es Valido");
-						cargarPosOrden(orden, posIni, indice);
-						indice++;
+					System.out.println("Es Valido");
+					cargarPosOrden(orden, posIni, indice);
+					indice++;
 					posIni = posFin+1;					
 				}else {
 					posIni=MAX;
@@ -77,6 +79,22 @@ public class ejer20 {
 	
 	
 	
+	private static void insertarValor(int[] orden3, int largo, int posIni, int posFin) {
+		// TODO Auto-generated method stub
+		int posLocal =0;
+		int largoGuardado = largo;
+		int largoLocal;
+		while(posLocal<MAX){
+			if(largo < largo){
+				orden3[posLocal]=posIni;							
+			}else{
+				posLocal++;
+				
+			}
+		}
+	}
+
+
 	private static void cargarPosOrden(int[] orden, int posIni, int indice) {
 		// TODO Auto-generated method stub
 		orden[indice]=posIni;
