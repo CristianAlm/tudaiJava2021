@@ -25,6 +25,7 @@ public class ejer19 {
 		imprimir_arreglo_secuencias_int(original);
 		
 		recorrer_secuencias(original,orden, posIni,posFin);
+		imprimir_arreglo_secuencias_int(orden);
 	}
 	
 	public static void recorrer_secuencias(int[] original, int [] orden, int posIni, int posFin) {

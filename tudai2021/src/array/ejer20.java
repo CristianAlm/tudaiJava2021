@@ -24,12 +24,17 @@ public class ejer20 {
 		int posIni = 0, posFin = 0;
 		cargar_arreglo_aleatorio_secuencias_int(original);
 		inicializar_arreglo(orden);
+		inicializar_arreglo(orden3);
 		imprimir_arreglo_secuencias_int(original);
-		imprimir_arreglo_secuencias_int(orden);
-		recorrer_secuencias(original,orden, posIni,posFin, orden3);
 		
+		recorrer_secuencias(original,orden, posIni,posFin, orden3);
+		imprimir_arreglo_secuencias_int(orden);
 		//ordenar_arreglo_seleccion(orden3,orden,original,posIni,posFin);
 		imprimir_arreglo_secuencias_int(orden3);
+		
+		//copiar_arreglo(orden,orden3);
+		//ordenar_ascendente(original,orden3);
+		
 	}
 	/*
 	public static void ordenar_arreglo_seleccion(int[]orden3,int []orden,int []original,int posIni, int posFin) {
@@ -60,8 +65,6 @@ public class ejer20 {
 				posFin=obtenerFin(original,posIni);
 				if (posFin != -1) {
 					System.out.println("Pos Ini es " + posIni + " y la fin es " + posFin);
-					int largo = posFin-posIni +1;
-					insertarValor(orden3, largo, posIni, posFin);
 					 
 					System.out.println("Es Valido");
 					cargarPosOrden(orden, posIni, indice);
