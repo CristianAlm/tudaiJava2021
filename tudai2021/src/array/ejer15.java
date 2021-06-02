@@ -28,6 +28,8 @@ public class ejer15 {
 	
 
 	}
+	
+	
 	private static void recorrer_secuencias(int[] array, int [] arrayPatron, int inicio, int fin, int inicioPatron, int finPatron) {
 		// TODO Auto-generated method stub
 		while (inicio < MAX) {
@@ -70,6 +72,7 @@ public class ejer15 {
 		// TODO Auto-generated method stub
 		return (finPatron-(inicioPatron-1))==(posFin - (posIni-1));
 	}
+	
 	
 
 	private static void imprimirArray(int[] arr) {
