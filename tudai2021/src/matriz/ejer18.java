@@ -1,10 +1,17 @@
 package matriz;
-
-
+/*
+ * Se tiene una matriz MAT de caracteres letras minúsculas precargada, se pide:
+	– cargar un arreglo ARR_CANT_VOCALES_FILAS_ORD los índices de las filas de MAT y
+	ordenarlo de forma tal que permita mantener un orden decreciente de MAT por la
+	cantidad de vocales de sus filas.
+	– dada una fila ingresada por el usuario desde teclado, eliminar la fila de la matriz MAT
+	y actualizar el arreglo ARR_CANT_VOCALES_FILAS_ORD (no hay que aplicar método
+	de ordenamiento).
+ * */
 
 import java.util.Random;
 
-public class matriz18 {
+public class ejer18 {
 
 	public static int MAX_FILA = 10;
 	public static int MAX_COLUMNA = 10;

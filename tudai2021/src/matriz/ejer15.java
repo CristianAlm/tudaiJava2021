@@ -88,14 +88,14 @@ public class ejer15 {
 		int i=posIni;
 		int f=posFin;
 		if(((posFin-posIni+1)>1)){
-		while ((i<f)&&(arr[i]>=arr[i+1])) {
-			i++;
-		}
-		if(i==f){//Quiere decir que recorri toda la secuencia
-			return true;
-		}else{
-			return false;			
-		}
+			while ((i<f)&&(arr[i]>=arr[i+1])) {
+				i++;
+			}
+			if(i==f){//Quiere decir que recorri toda la secuencia
+				return true;
+			}else{
+				return false;			
+			}
 		}else{
 			return false;			
 		}
@@ -160,4 +160,3 @@ public class ejer15 {
 	}
 
 }
-
